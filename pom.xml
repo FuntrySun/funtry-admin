@@ -15,20 +15,19 @@
         <artifactId>continew-starter</artifactId>
         <version>2.7.1</version>
     </parent>
-
-    <groupId>top.continew</groupId>
-    <artifactId>continew-admin</artifactId>
+    <artifactId>funtry</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
     <description>ContiNew Admin（Continue New Admin）持续迭代优化的前后端分离中后台管理系统框架，开箱即用，持续提供舒适的开发体验。</description>
     <url>https://github.com/continew-org/continew-admin</url>
 
     <modules>
-        <module>continew-admin-webapi</module>
-        <module>continew-admin-plugins</module>
-        <module>continew-admin-system</module>
-        <module>continew-admin-common</module>
-        <module>continew-admin-extension</module>
+        <module>funtry-admin-webapi</module>
+        <module>funtry-admin-plugins</module>
+        <module>funtry-admin-system</module>
+        <module>funtry-admin-common</module>
+        <module>funtry-admin-extension</module>
+        <module>funtry-admin-base</module>
     </modules>
 
     <properties>
@@ -39,24 +38,30 @@
     <!-- 全局依赖版本管理 -->
     <dependencyManagement>
         <dependencies>
+            <!-- 基础模块（存放基础业务） -->
+            <dependency>
+                <groupId>top.continew</groupId>
+                <artifactId>funtry-admin-base</artifactId>
+                <version>${revision}</version>
+            </dependency>
             <!-- API 模块（存放 Controller 层代码，打包部署的模块） -->
             <dependency>
                 <groupId>top.continew</groupId>
-                <artifactId>continew-admin-webapi</artifactId>
+                <artifactId>funtry-admin-webapi</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <!-- 系统管理模块（存放系统管理模块相关功能，例如：部门管理、角色管理、用户管理等） -->
             <dependency>
                 <groupId>top.continew</groupId>
-                <artifactId>continew-admin-system</artifactId>
+                <artifactId>funtry-admin-system</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <!-- 公共模块（存放公共工具类，公共配置等） -->
             <dependency>
                 <groupId>top.continew</groupId>
-                <artifactId>continew-admin-common</artifactId>
+                <artifactId>funtry-admin-common</artifactId>
                 <version>${revision}</version>
             </dependency>
 
@@ -77,6 +82,12 @@
     </dependencyManagement>
 
     <dependencies>
+        <!--二维码生成-->
+        <!--<dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.3.3</version>
+        </dependency>-->
         <!-- Hutool（小而全的 Java 工具类库，通过静态方法封装，降低相关 API 的学习成本，提高工作效率，使 Java 拥有函数式语言般的优雅，让 Java 语言也可以“甜甜的”） -->
         <dependency>
             <groupId>cn.hutool</groupId>

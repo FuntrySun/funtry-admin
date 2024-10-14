@@ -1,0 +1,10 @@
+  _____             __
+_/ ____\_ __  _____/  |________ ___.__.
+\   __\  |  \/    \   __\_  __ <   |  |
+ |  | |  |  /   |  \  |  |  | \/\___  |
+ |__| |____/|___|  /__|  |__|   / ____|
+                 \/             \/
+
+ :: ${project.name}   ::                                               v${project.version}
+ :: ContiNew Starter ::                                               v2.7.1
+ :: Spring Boot      ::                                               v${spring-boot.version}
