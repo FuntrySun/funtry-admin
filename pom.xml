@@ -83,11 +83,11 @@
 
     <dependencies>
         <!--二维码生成-->
-        <!--<dependency>
+        <dependency>
             <groupId>com.google.zxing</groupId>
             <artifactId>core</artifactId>
             <version>3.3.3</version>
-        </dependency>-->
+        </dependency>
         <!-- Hutool（小而全的 Java 工具类库，通过静态方法封装，降低相关 API 的学习成本，提高工作效率，使 Java 拥有函数式语言般的优雅，让 Java 语言也可以“甜甜的”） -->
         <dependency>
             <groupId>cn.hutool</groupId>

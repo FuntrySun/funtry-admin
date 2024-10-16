@@ -21,7 +21,6 @@ public class CheckActivityInfoDO extends BaseDO {
 
     @Serial
     private static final long serialVersionUID = 1L;
-
     /**
      * 教师ID
      */

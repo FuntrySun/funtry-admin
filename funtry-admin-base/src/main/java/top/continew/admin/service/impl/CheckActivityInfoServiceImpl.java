@@ -1,7 +1,10 @@
 package top.continew.admin.service.impl;
 
 import cn.hutool.extra.qrcode.QrCodeUtil;
+import cn.hutool.extra.qrcode.QrConfig;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import com.google.zxing.qrcode.encoder.QRCode;
 import lombok.RequiredArgsConstructor;
 
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +22,7 @@ import top.continew.admin.model.resp.CheckActivityInfoDetailResp;
 import top.continew.admin.model.resp.CheckActivityInfoResp;
 import top.continew.admin.service.CheckActivityInfoService;
 
+import java.awt.*;
 import java.util.Base64;
 
 /**
@@ -48,13 +52,18 @@ public class CheckActivityInfoServiceImpl extends BaseServiceImpl<CheckActivityI
             log.error("getCourseIdByTeacherId 查询课程id失败", e);
             return null;
         }
-        return coursesDO.getUserId();
+        return coursesDO.getId();
     }
     // 生成签到的二维码
     @Override
     public String createCode(String activityId) {
         // TODO 实现生成签到的二维码
-        byte[] bytes = QrCodeUtil.generatePng(activityId,300,300);
+        QrConfig config = new QrConfig(400, 400);
+        config.setMargin(2);
+        config.setForeColor(Color.BLACK);
+        config.setBackColor(Color.WHITE);
+        config.setErrorCorrection(ErrorCorrectionLevel.H);
+        byte[] bytes = QrCodeUtil.generatePng(String.valueOf(activityId),config);
         String base64 = Base64.getEncoder().encodeToString(bytes);
         log.info(base64);
         return base64;

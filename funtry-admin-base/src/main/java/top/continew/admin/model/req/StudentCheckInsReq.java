@@ -24,4 +24,30 @@ public class StudentCheckInsReq extends BaseReq {
 
     @Serial
     private static final long serialVersionUID = 1L;
+
+    /**
+     * id
+     */
+    @Schema(description = "id")
+    private Long id;
+
+    /**
+     * 学生ID
+     */
+    @Schema(description = "学生ID")
+    private Long studentId;
+
+    /**
+     * 签到时间
+     */
+    @Schema(description = "签到时间")
+    private LocalDateTime checkInTime;
+
+    /**
+     * 签到记录id
+     */
+    @Schema(description = "签到记录id")
+    private Long checkInId;
+
+
 }

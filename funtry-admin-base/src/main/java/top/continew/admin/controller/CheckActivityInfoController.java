@@ -1,6 +1,7 @@
 package top.continew.admin.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import top.continew.admin.model.entity.CheckActivityInfoDO;
 import top.continew.starter.extension.crud.enums.Api;
@@ -52,14 +53,13 @@ public class CheckActivityInfoController extends BaseController<CheckActivityInf
             throw new IllegalArgumentException("该教师未关联课程");
         req.setCourseId(courseId);
         req.setCheckStatus(1);   // 默认设置为已发布
-        CheckActivityInfoDO checkActivityInfoDO = new CheckActivityInfoDO();
-        String activityId = String.valueOf(checkActivityInfoDO.getId());
-        createCode(activityId);
-        // 调用父类的add方法，保留原有的逻辑
         return super.add(req);
     }
-    @GetMapping("/qrcode")
-    public String createCode(String activityId) {
+    @Operation(summary = "创建签到码")
+    @GetMapping("/qrcode/{activityId}")
+    public String createCode(@PathVariable String activityId) {
+        System.out.println("activityId: " + activityId);
         return checkActivityInfoService.createCode(activityId);
     }
+
 }

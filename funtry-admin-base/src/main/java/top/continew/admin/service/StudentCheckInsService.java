@@ -12,4 +12,6 @@ import top.continew.admin.model.resp.StudentCheckInsResp;
  * @author funtry
  * @since 2024/10/13 13:10
  */
-public interface StudentCheckInsService extends BaseService<StudentCheckInsResp, StudentCheckInsDetailResp, StudentCheckInsQuery, StudentCheckInsReq> {}
+public interface StudentCheckInsService extends BaseService<StudentCheckInsResp, StudentCheckInsDetailResp, StudentCheckInsQuery, StudentCheckInsReq> {
+    boolean isSign(String id);
+}
